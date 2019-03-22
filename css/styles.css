@@ -1,0 +1,92 @@
+/* Reset e cor do body */
+* {padding: 0; margin: 0; box-sizing: border-box; list-style: none; text-decoration: none; color: #fff; font-family: 'Roboto Mono', monospace;}
+body {background-color : black;}
+
+/* NavBar */
+nav ul {list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-image: linear-gradient(#3390FF,#3352FF);}
+nav li {float: left;}
+nav li:last-child {border-right: none;}
+nav li a {display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none; border-radius:10px; margin:5px; border:1px solid black;}
+nav li a:hover {background-color: #2345ff;}
+
+@media screen and (max-width: 600px) {
+  nav .col-25, .col-75 {width: 100%; margin-top: 0px;}
+  nav input[type=submit] {width:100%; margin-top: 10px;}
+  nav ul li {float: none; border-right:none;}
+  nav li:last-child {border-bottom: none;}
+}
+
+nav .currentPage {
+	background-color: #2345ff;
+    color: #fff;
+	box-shadow: 0 0 3px #000;
+}
+
+/* Hero */
+.hero {background-image: url(../images/hero.jpg); background-size: cover; min-height: 95vh; color: #fff; display: flex; justify-content: center; align-items: center; flex-direction:column; text-align: center;}
+.hero-text {background-color: rgba(0,0,0,.7); background-size: cover; min-height: 95vh; min-width: 100%; color: #fff; display: flex; justify-content: center; align-items: center; flex-direction:column; text-align: center;}
+.hero h1 {font-size: 3.2rem; margin-bottom: 0; color:#fff; text-shadow: 1px 2px #000; margin-top:10px;}
+.hero h3 {font-size: 2rem; margin-bottom: 15px; color:#fff; text-shadow: 1px 2px #000;}
+.hero .btn {background-color: #fcff89; color:#000; border: 3px solid #c3c63b; border-radius: 10px; padding: 20px 50px; text-transform: uppercase;}
+.hero .btn:hover { background-color: #c3c63b; color: #fff}
+.hero .btn {background-color: #fcff89; color:#000; border: 3px solid #c3c63b; border-radius: 10px; padding: 20px 50px; text-transform: uppercase;}
+.hero .btn:hover { background-color: #c3c63b; color: #fff}
+
+@media (max-width: 600px) {
+	.hero h1 {font-size:2.5rem;}
+	.hero h3 {font-size:1.5rem;}
+}
+
+/* Imagem Perfil */
+.profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 100px auto 100px auto;
+}
+
+.sobre {
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #3390FF;
+	border-color: #3390FF;
+	box-shadow: 0 0 10px #3390FF;
+	border-radius: 7px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.textoSobre {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+	color:#3390FF;
+	text-shadow: 0px 0px 7px #1C6EA4;
+}
+
+@media (max-width: 600px) {
+	.textoSobre {
+		font-size: 1.1rem;
+	}
+}
+
+/* footer */
+footer {display: flex; flex-direction: column; background-image:linear-gradient(#3390FF,#3352FF); padding: 50px 0px; align-items:center; margin-bottom:2px;} 
+footer ul {display:flex; margin-bottom: 25px;}
+footer ul li {margin-right: 10px;}
+footer ul li:last-child {margin-right:0;}
+footer ul li a {font-size: 2rem; border:1px solid black; padding: 5px 5px; border-radius:10px; text-shadow: 0px 0px 6px #000;}
+footer ul li a:hover{background-color:#2142ff;}
+footer p {color: #fff; text-align:center; font-size: 1.05rem;}
+
+
+@media (max-width: 600px) {
+	footer ul{display:block;}
+	footer ul li{margin-bottom:13px;}
+	footer ul li a {border:none;}
+	footer p {font-size: 0.95rem;}
+}
