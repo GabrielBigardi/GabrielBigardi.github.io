@@ -90,7 +90,7 @@ function printarea()
 	var id = document.getElementById("plant-id-textarea").value;
 	console.log("Making API Call using ID: " + id);
 	
-	fetch('http://localhost/Seeds/api.php?plant_hash='+id).then(function (response) {
+	fetch('http://47.252.24.163/api.php?plant_hash='+id).then(function (response) {
 		// The API call was successful!
 		var json = response.json().then(data => {
 			console.log(data);
