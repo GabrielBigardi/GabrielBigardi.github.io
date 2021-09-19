@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PVU Seed Information</title>
+	<meta name="description" content="A simple tool to find more information about your seed.">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav>
+		<img src="https://plantvsundead.com/assets/img/Logo%20game.png" width="76px"></img>
+	</nav>
+	
+	<div class="plant-id">
+		<p class="text-12">Insert Plant ID</p>
+			<textarea id="plant-id-textarea" name="plant-id-textarea" rows="4" cols="50">2009039941</textarea>
+			<button id="submit" onclick="printarea()">Search</button>
+	</div>
+	
+	<div class="plant-information">
+		<div class="plant-information-data">
+			<img src="https://plantvsundeadseed.vercel.app/plants/90_3.png" class="plant-image" id="info-image"></img>
+			
+			<p class="line-bottom"></p>
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title">ID</p>
+				<p class="info-text" id="info-id">90_3</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title">Category</p>
+				<p class="info-text" id="info-category">Mother tree</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title">Rarity</p>
+				<p class="info-text" id="info-rarity">Mythic</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title">Type</p>
+				<p class="info-text" id="info-type">Fire</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title">LE/H</p>
+				<p class="info-text" id="info-le-hour">31.25 LE</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title align-left">LE/M</p>
+				<p class="info-text align-right" id="info-le-month">22500.00 LE</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			
+			<div class="left-right">
+				<p class="info-title">Profit/M</p>
+				<p class="info-text" id="info-profit-month">150.00 PVU</p>
+			</div>
+			
+			<p class="line-bottom"></p>
+			<p class="line-bottom"></p>
+			
+			<div class="dev-wallet">
+				<p class="info-text">Dev wallet (Binance Smart Chain):</p>
+				<p class="info-text">0x51843568d536F43D067Ea572F65b42082D305b80</p>
+			</div>
+			<p class="info-text">Feel free to donate if you want to help.</p>
+		</div>
+	</div>
+		
+	<footer style="color:#500800">2021 © All images and respective names are copyright of Plant vs Undead.<footer>
+</body>
+<script>
+function printarea()
+{
+	var id = document.getElementById("plant-id-textarea").value;
+	console.log("Making API Call using ID: " + id);
+	
+	fetch('http://localhost/Seeds/api.php?plant_hash='+id).then(function (response) {
+		// The API call was successful!
+		var json = response.json().then(data => {
+			console.log(data);
+			document.querySelector("#info-image").src = data.plant_icon_URL;
+			document.querySelector("#info-id").innerHTML = data.plant_id_full;
+			document.querySelector("#info-category").innerHTML = data.plant_type == "mtree" ? "Mother tree" : "Plant";
+			document.querySelector("#info-rarity").innerHTML = data.plant_rarity_name;
+			document.querySelector("#info-type").innerHTML = data.plant_element;
+			document.querySelector("#info-le-hour").innerHTML = parseFloat(LEHour(data)).toFixed(2) + " LE";
+			document.querySelector("#info-le-month").innerHTML =  parseFloat(LEHour(data) * 720).toFixed(2) + " LE";
+			document.querySelector("#info-profit-month").innerHTML = parseFloat((LEHour(data) * 720) / 150).toFixed(2) + " PVU";
+		});
+	}).catch(function (err) {
+		// There was an error
+		console.warn('Something went wrong.', err);
+	});
+}
+
+function LEHour(data)
+{
+	return data.plant_rarity_name == "Common" ? data.common_base_LE / data.plant_duration: data.plant_rarity_name == "Uncommon" ? data.uncommon_base_LE / data.plant_duration: data.plant_rarity_name == "Rare" ? data.rare_base_LE / data.plant_duration: data.plant_rarity_name == "Mythic" ? data.mythic_base_LE / data.plant_duration: 0;
+}
+</script>
+</html>

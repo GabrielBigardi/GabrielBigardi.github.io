@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	text-align: center;
+}
+
+body{
+	background-color: #E74C3C;
+	color: white;
+}
+
+nav {
+	background-color: #C0392B;
+	text-align: center;
+}
+
+nav img{
+	margin: 5px 0;
+}
+
+.plant-id p{
+
+}
+
+.plant-id textarea{
+	display:inline-block;
+	width:200px;
+	height:18px;
+	resize: none;
+	background:#FF6656;
+	color:white;
+	border:1px solid white;
+	overflow: hidden;
+	vertical-align:middle;
+	margin-bottom:20px;
+	margin-top:5px;
+	border-radius:5px 0 0 5px;
+}
+
+.plant-information {
+	background-color:#FF6656;
+	width:349px;
+	height:331px;
+	margin:auto;
+	border-radius:5px;
+}
+
+.line-bottom{
+	width:300px;
+	height:1px;
+	background-color:#C0392B;
+	margin:auto;
+
+}
+
+.left-right {
+	display: flex;
+	justify-content: space-between;
+	width:300px;
+	margin:auto;
+	padding:3px 0;
+}
+
+.plant-image{
+	width:50px;
+	margin:5px 0;
+}
+
+.info-title{
+	color:#C0392B;
+}
+
+footer {
+	margin-top:50px;
+	bottom:0;
+	width:100%;
+}
+
+.dev-wallet{
+	font-size:12px;
+	margin-top:5px;
+}
+
+.text-12{
+	margin-top:20px;
+}
+
+button{
+	display:inline-block;
+	width:75px;
+	height:20px;
+	resize: none;
+	background:#C0392B;
+	color:white;
+	border:1px solid white;
+	overflow: hidden;
+	vertical-align:middle;
+	margin-bottom:20px;
+	margin-top:5px;
+	border-radius:0 5px 5px 0;
+}
