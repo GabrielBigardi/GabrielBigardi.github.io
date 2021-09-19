@@ -91,7 +91,7 @@ function printarea()
 	var id = document.getElementById("plant-id-textarea").value;
 	console.log("Making API Call using ID: " + id);
 	
-	fetch('https://godsofsand.tk/api.php?plant_hash='+id).then(function (response) {
+	fetch('https://godsofsand.tk/api.php?plant_hash='+id, {mode: "no-cors"}).then(function (response) {
 		// The API call was successful!
 		var json = response.json().then(data => {
 			console.log(data);
